@@ -18,33 +18,34 @@
             <a class="nav-link" href="/books">View Your Shelf</a>
     </div>
     <div class="book-intro">
-        <h1>Add a New Book</h1>
+        <h1>Edit <%=book.title%>
+        </h1>
     </div>
 
     <div class="book-details">
-        <form action="/books/" method="POST">
+        <form action="/books/<%=book._id%>?_method=PUT" method="POST">
             <label for="title">Book Title:</label>
-            <input type="text" name="title" id="title" class="text-box" />
+            <input type="text" name="title" id="title" class="text-box" value="<%=book.title%>" />
 
             <label for="author">Author:</label>
-            <input type="text" name="author" id="author" class="text-box" />
+            <input type="text" name="author" id="author" class="text-box" value="<%=book.author%>" />
 
-            <label for="genre">Genre:</label>
-            <input type="text" name="genre" id="genre" class="text-box" />
+            <label for=" genre">Genre:</label>
+            <input type="text" name="genre" id="genre" class="text-box" value="<%=book.genre%>" />
 
-            <label for="pageNumber">Page Number:</label>
-            <input type="text" name="pageNumber" id="pageNumber" class="text-box" />
+            <label for=" pageNumber">Page Number:</label>
+            <input type="text" name="pageNumber" id="pageNumber" class="text-box" value="<%=book.pageNumber%>" />
 
-            <label for="status">Status:</label>
+            <label for=" status">Status:</label>
             <select id="status" name="status">
-                <option value="Finished">Unread</option>
-                <option value="Unread">Finished</option>
-                <option value="In Progress">Currently Reading</option>
+                <option value="finished">Unread</option>
+                <option value="unread">Finished</option>
+                <option value="in process">Currently Reading</option>
             </select>
 
             <div class="note-box">
                 <label for="notes">Notes:</label>
-                <textarea type="text" id="notes" name="notes"></textarea>
+                <textarea type="text" id="notes" name="notes"> <%=book.notes%></textarea>
             </div>
 
 

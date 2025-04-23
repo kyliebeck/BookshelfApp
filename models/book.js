@@ -18,7 +18,7 @@ const bookSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['finished', 'unread', 'in process'],
+        enum: ['Finished', 'Unread', 'In Progress'],
     },
     notes: {
         type: String,

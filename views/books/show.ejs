@@ -28,10 +28,15 @@
     <h3>
         <%=book.pageNumber%> pages
     </h3>
+    <h3>Status: <%=book.status%>
+    </h3>
 
     <div class="action-container">
         <form class="delete-form" action="/books/<%=book._id%>?_method=DELETE" method="POST">
             <button class="book-action" type="submit">Delete </button>
+        </form>
+        <form class="edit-form" action="/books/<%=book._id%>/edit">
+            <button class="book-action">Edit </button>
         </form>
 
     </div>

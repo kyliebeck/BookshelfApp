@@ -36,26 +36,50 @@ router.get('/:bookId', async (req, res) => {
 
 // AAU I want to be able to POST my new book into my current collection and view it on my index page
 router.post('/', async (req, res) => {
-    try {
-        const bookData = {
-            title: req.body.title,
-            author: req.body.author,
-            genre: req.body.genre,
-            pageNumber: req.body.pageNumber,
-            status: req.body.status,
-            notes: req.body.notes,
 
-        }
-        const newBook = new Book(bookData);
-        await newBook.save()
-        // Redirect back to the books index page
-        res.redirect("/books")
-    } catch (error) {
-        // if any errors, log them and redirect back home
-        console.log(error);
-        res.redirect('/')
+    const bookData = {
+        title: req.body.title,
+        author: req.body.author,
+        genre: req.body.genre,
+        pageNumber: req.body.pageNumber,
+        status: req.body.status,
+        notes: req.body.notes,
+
     }
+    const newBook = new Book(bookData);
+    await newBook.save()
+    // Redirect back to the books index page
+    res.redirect("/books")
 });
+
+// AAU, I want to be able to edit any book that I post to my collection. 
+
+router.get('/:bookId/edit', async (req, res) => {
+    const foundBook = await Book.findById(req.params.bookId);
+    res.render('books/edit.ejs', {
+        book: foundBook
+    });
+});
+// AAU, I want my book details to be prefilled when I open the edit page
+router.put('/:bookId', async (req, res) => {
+
+    const updatedBook = await Book.findByIdAndUpdate(req.params.bookId, {
+        title: req.body.title,
+        author: req.body.author,
+        genre: req.body.genre,
+        pageNumber: req.body.pageNumber,
+        notes: req.body.notes,
+    }, { new: true });
+
+    await updatedBook.save();
+
+    // redirect back to the show view of current book
+    res.redirect(`/books/${req.params.bookId}`);
+
+
+})
+
+
 
 router.delete('/:bookId', async (req, res) => {
     await Book.findByIdAndDelete(req.params.bookId);
