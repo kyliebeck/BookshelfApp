@@ -1,0 +1,58 @@
+<!-- views/bookx/new.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
+    <title>Add a Book</title>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <%- include('../partials/_navbar.ejs') %>
+            <a class="nav-link" href="/">Back Home
+            </a>
+            <a class="nav-link" href="/books">View Your Shelf</a>
+    </div>
+    <div class="book-intro">
+        <h1>Add a New Book</h1>
+    </div>
+
+    <div class="book-details">
+        <form action="/books/" method="POST">
+            <label for="title">Book Title:</label>
+            <input type="text" name="title" id="title" class="text-box" />
+
+            <label for="author">Author:</label>
+            <input type="text" name="author" id="author" class="text-box" />
+
+            <label for="genre">Genre:</label>
+            <input type="text" name="genre" id="genre" class="text-box" />
+
+            <label for="pageNumber">Page Number:</label>
+            <input type="text" name="pageNumber" id="pageNumber" class="text-box" />
+
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option value="finished">Unread</option>
+                <option value="unread">Finished</option>
+                <option value="in process">Currently Reading</option>
+            </select>
+
+            <div class="note-box">
+                <label for="notes">Notes:</label>
+                <textarea type="text" id="notes" name="notes"></textarea>
+            </div>
+
+
+            <button class="submit" button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+
+
+</body>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
+    <title>My Bookshelves</title>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <%- include('../partials/_navbar.ejs') %>
+            <!-- <a class="nav-link" href="/">Back Home
+            </a>
+            <a class="nav-link" href="/books/new">Add Books</a> -->
+    </div>
+    <h1>My Bookshelf</h1>
+    <a class="nav-link" href="/books/new">Add a book to your shelf!</a>
+    </div>
+
+    <%if (!books.length>0){ %>
+        <%="You do not have any books yet!" %>
+            <% } else { %>
+
+                <div class="book-list">
+
+                    <% books.forEach(book=> { %>
+                        <li>
+                            <%console.log("book ID", book)%>
+                                <a class="book-title" href="/books/<%=book._id %>">
+                                    <%=book.title%>
+                                </a>
+                                <%})%>
+                        </li>
+                        <%}%>
+
+                </div>
+
+
+</body>
+
+</html>

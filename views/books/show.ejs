@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
+    <title>
+        <%=book.title %>
+
+    </title>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <%- include('../partials/_navbar.ejs') %>
+    </div>
+
+    <h1>
+        <%=book.title%>
+    </h1>
+    <h2> Author:
+        <%=book.author%>
+    </h2>
+    <h3> Genre:
+        <%=book.genre%>
+    </h3>
+    <h3>
+        <%=book.pageNumber%> pages
+    </h3>
+
+    <div class="action-container">
+        <form class="delete-form" action="/books/<%=book._id%>?_method=DELETE" method="POST">
+            <button class="book-action" type="submit">Delete </button>
+        </form>
+
+    </div>
+</body>
