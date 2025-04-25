@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Create a Shelf</title>
+</head>
+<div class="nav-bar">
+    <%- include('../partials/_navbar.ejs') %>
+
+</div>
+
+<body>
+
+    <div class="shelf-intro">
+        <h1>Create a New Shelf</h1>
+    </div>
+
+    <div class="shelf-form">
+        <form action="/shelves/" method="POST">
+
+            <div class="shelf-title">
+                <label for="title" class="details">Shelf Title:</label>
+                <input type="text" name="title" id="title" class="text-box" />
+            </div>
+            <div class="add-books-container">
+                <div class="add-books">
+
+                    <% books.forEach((book)=> { %>
+
+                        <input type="checkbox" id="shelf-books" name="book-<%=book._id%>">
+                        <label for="book-<%=book._id%>">
+                            <%=book.title%>
+                        </label>
+
+                        <%})%>
+                </div>
+            </div>
+            <button class="submit" button type="submit">Create</button>
+        </form>
+    </div>
+
+
+
+</body>

@@ -18,11 +18,19 @@ const bookSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ['Finished', 'Unread', 'In Progress'],
+        enum: ['Finished', 'Unread', 'Currently Reading'],
     },
     notes: {
         type: String,
     },
+    favorite: {
+        type: Boolean
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
+    }
 
 });
 

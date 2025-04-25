@@ -2,17 +2,25 @@ const express = require('express');
 const router = express.Router();
 const Book = require('../models/book.js')
 const User = require('../models/user.js');
+const Shelf = require('../models/shelf.js')
 
 
 
 // AAU, I want to be able to view all of the books I have added to my collection on one page
 router.get('/', async (req, res) => {
-    const allBooks = await Book.find();
 
-    res.render('books/index.ejs', { books: allBooks })
+    const allBooks = await Book.find({
+        user: req.session.user._id
+    });
+    const foundBook = await Book.findById(req.params.bookId, req.body)
+
+    res.render('books/index.ejs', {
+        books: allBooks,
+        book: foundBook
+    })
 });
 
-// AAU, I want to easily find and click on an ‘Add New Book link, which takes me to a form for adding new books to my bookshelf.
+// AAU, I want to easily find and click on an ‘Add New Book link, which takes me to a form for adding new books to my collection.
 router.get('/new', async (req, res) => {
     res.render("books/new.ejs")
 });
@@ -20,7 +28,7 @@ router.get('/new', async (req, res) => {
 // AAU, I want to see the full details of each book I post
 router.get('/:bookId', async (req, res) => {
     try {
-        console.log("req params", req.params)
+
         const foundBook = await Book.findById(req.params.bookId)
 
         res.render('books/show.ejs', {
@@ -44,7 +52,7 @@ router.post('/', async (req, res) => {
         pageNumber: req.body.pageNumber,
         status: req.body.status,
         notes: req.body.notes,
-
+        user: req.session.user._id,
     }
     const newBook = new Book(bookData);
     await newBook.save()

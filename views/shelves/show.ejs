@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>
+        <%=shelf.title %>
+
+    </title>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <%- include('../partials/_navbar.ejs') %>
+
+    </div>
+    <div class="shelf-form">
+
+        <h1>
+            <%=shelf.title%>
+        </h1>
+
+        <div class="shelf-content">
+            <%=shelf.books.map((book)=> {
+                return book.title
+                })%>
+
+        </div>
+
+        <div class="action-container">
+            <form class="edit-form" action="/shelves/<%=shelf._id%>/edit">
+                <button class="shelf-action">Edit </button>
+            </form>
+
+            <form class="delete-form" action="/shelves/<%=shelf._id%>?_method=DELETE" method="POST">
+                <button class="shelf-action" type="submit">Delete </button>
+            </form>
+        </div>
+
+        <div class="shelf-navs">
+            <a class="nav-link" href="/">Back Home
+            </a>
+            <a class="nav-link" href="/shelves">View Shelves</a>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

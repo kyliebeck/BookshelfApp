@@ -15,28 +15,26 @@
 
 
 <body>
-    <h1>My Book Collection</h1>
-    <a class="nav-link" href="/books/new">New Book</a>
+    <h1>My Bookshelves</h1>
 
 
-    <%if (!books.length>0){ %>
-        <%="You do not have any books yet!" %>
+
+    <%if (!shelves.length>0){ %>
+        <%="You do not have any shelves yet!" %>
             <% } else { %>
 
-                <div class="book-index">
+                <div class="bookshelf">
 
-                    <% books.forEach(book=> { %>
+                    <% shelves.forEach(shelf=> { %>
                         <li>
-                            <a class="book-title" href="/books/<%=book._id %>">
-                                <%=book.title%>
+                            <a class="shelf-title" href="/shelves/<%=shelf._id %>">
+                                <%=shelf.title%>
                             </a>
                             <%})%>
                         </li>
                         <%}%>
 
                 </div>
-
+                <a class="nav-link" href="/shelves/new">New Shelf</a>
 
 </body>
-
-</html>

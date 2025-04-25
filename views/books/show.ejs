@@ -4,40 +4,43 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>
         <%=book.title %>
 
     </title>
 </head>
+<div class="nav-bar">
+    <%- include('../partials/_navbar.ejs') %>
+
+</div>
 
 <body>
-    <div class="nav-bar">
-        <%- include('../partials/_navbar.ejs') %>
-    </div>
-
     <h1>
-        <%=book.title%>
+        <%=book.title%> by <%=book.author%>
     </h1>
-    <h2> Author:
-        <%=book.author%>
-    </h2>
-    <h3> Genre:
-        <%=book.genre%>
-    </h3>
-    <h3>
-        <%=book.pageNumber%> pages
-    </h3>
-    <h3>Status: <%=book.status%>
-    </h3>
 
-    <div class="action-container">
-        <form class="delete-form" action="/books/<%=book._id%>?_method=DELETE" method="POST">
-            <button class="book-action" type="submit">Delete </button>
-        </form>
-        <form class="edit-form" action="/books/<%=book._id%>/edit">
-            <button class="book-action">Edit </button>
-        </form>
+    <div class="book-details">
 
+        <h3>
+            Genre: <%=book.genre%>
+        </h3>
+        <h3>
+            <%=book.pageNumber%> pages
+        </h3>
+        <h3>
+            Status: <%=book.status%>
+        </h3>
+
+        <div class="action-container">
+            <form class="edit-form" action="/books/<%=book._id%>/edit">
+                <button class="book-action">Edit </button>
+            </form>
+
+            <form class="delete-form" action="/books/<%=book._id%>?_method=DELETE" method="POST">
+                <button class="book-action" type="submit">Delete </button>
+            </form>
+        </div>
     </div>
+    <a class="index-nav" href="/books/">Back to my Bookshelf</a>
 </body>

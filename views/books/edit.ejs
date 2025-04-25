@@ -6,48 +6,69 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link rel="stylesheet" href="/stylesheets/style.css" /> -->
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Add a Book</title>
 </head>
+<div class="nav-bar">
+    <%- include('../partials/_navbar.ejs') %>
+
+</div>
+
+<div class="edit-navigate">
+    <a class="nav-link" href="/">Back Home
+    </a>
+    <a class="nav-link" href="/books">View Your Books</a>
+</div>
+
+
 
 <body>
-    <div class="nav-bar">
-        <%- include('../partials/_navbar.ejs') %>
-            <a class="nav-link" href="/">Back Home
-            </a>
-            <a class="nav-link" href="/books">View Your Shelf</a>
-    </div>
+
     <div class="book-intro">
         <h1>Edit <%=book.title%>
         </h1>
     </div>
 
-    <div class="book-details">
+    <div class="book-form">
         <form action="/books/<%=book._id%>?_method=PUT" method="POST">
-            <label for="title">Book Title:</label>
-            <input type="text" name="title" id="title" class="text-box" value="<%=book.title%>" />
 
-            <label for="author">Author:</label>
-            <input type="text" name="author" id="author" class="text-box" value="<%=book.author%>" />
+            <div class="title">
+                <label for="title" class="details">Title:</label>
+                <input type="text" name="title" id="title" class="text-box" value="<%=book.title%>" />
+            </div>
 
-            <label for=" genre">Genre:</label>
-            <input type="text" name="genre" id="genre" class="text-box" value="<%=book.genre%>" />
+            <div class="author">
+                <label for="author" class="details">Author:</label>
+                <input type="text" name="author" id="author" class="text-box" value="<%=book.author%>" />
+            </div>
 
-            <label for=" pageNumber">Page Number:</label>
-            <input type="text" name="pageNumber" id="pageNumber" class="text-box" value="<%=book.pageNumber%>" />
+            <div class="genre">
+                <label for=" genre" class="details">Genre:</label>
+                <input type="text" name="genre" id="genre" class="text-box" value="<%=book.genre%>" />
+            </div>
 
-            <label for=" status">Status:</label>
-            <select id="status" name="status">
-                <option value="finished">Unread</option>
-                <option value="unread">Finished</option>
-                <option value="in process">Currently Reading</option>
-            </select>
+            <div class="pageNumber">
+                <label for=" pageNumber" class="details">Pages:</label>
+                <input type="text" name="pageNumber" id="pageNumber" class="text-box" value="<%=book.pageNumber%>" />
+            </div>
 
             <div class="note-box">
-                <label for="notes">Notes:</label>
+                <label for="notes" class="details">Notes:</label>
                 <textarea type="text" id="notes" name="notes"> <%=book.notes%></textarea>
             </div>
 
+            <div class="status">
+                <label for=" status" class="details">Status:</label>
+                <select id="status" name="status">
+                    <option value="Unread">Unread</option>
+                    <option value="Finished">Finished</option>
+                    <option value="Currently Reading">Currently Reading</option>
+                </select>
+            </div>
+            <div class="favorite">
+                <label for="favorite">Favorite:</label>
+                <input type="checkbox" id="favorite" name="favorite" <% if (book.favorite) {%> checked <%} %> />
+            </div>
 
             <button class="submit" button type="submit">Submit</button>
         </form>

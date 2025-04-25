@@ -7,20 +7,24 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Bookshelf</title>
 </head>
+<div class="nav-bar">
+    <%- include('./partials/_navbar.ejs') %>
+</div>
 
 <body>
-    <%- include('./partials/_navbar.ejs') %>
-        <div class="container">
-            <% if (user) { %>
-                <h1>Welcome to Bookshelf, <%= user.username %>!</h1>
 
-                <a class="navigate" href="/books/">View My Bookshelves</a>
+    <div class="container">
+        <% if (user) { %>
+            <h1>Welcome to Bookshelf, <%= user.name %>!</h1>
+            <div class="home-links">
+                <a class="home-navigate" href="/books/">View My Books</a>
+                <a class="home-navigate" href="/shelves/">View My Bookshelves</a>
+            </div>
+            <% } else { %>
+                <h1>Welcome to Bookshelf</h1>
 
-                <% } else { %>
-                    <h1>Welcome to Bookshelf</h1>
-
-                    <% } %>
-        </div>
+                <% } %>
+    </div>
 </body>
 
 </html>

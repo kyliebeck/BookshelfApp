@@ -8,17 +8,20 @@
     <title>Bookshelf</title>
 
 </head>
+<div class="nav-bar">
+    <%- include('../partials/_navbar.ejs') %>
+</div>
 
 <body class="index-body">
-    <%- include('./partials/_navbar.ejs') %>
-        <div class="index-container">
-            <div class="text-container">
-                <h1 class="main-header">Bookshelf</h1>
-                <p class="subheader">Keep track of all your books!</p>
-            </div>
-            <div class="auth-links">
-                <a class="signup-link" href="/auth/sign-up">Sign Up</a>
-                <a class="signin-link" href="/auth/sign-in">Sign In</a>
-            </div>
+
+    <div class="index-container">
+        <div class="text-container">
+            <h1 class="main-header">Bookshelf</h1>
+            <p class="subheader">Keep track of all your books!</p>
         </div>
+        <div class="auth-links">
+            <a class="signup-link" href="/auth/sign-up">Sign Up</a>
+            <a class="signin-link" href="/auth/sign-in">Sign In</a>
+        </div>
+    </div>
 </body>

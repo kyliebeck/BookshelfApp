@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <title>Sign Up</title>
 </head>
 
@@ -11,21 +12,31 @@
 
 <body>
     <%- include('../partials/_navbar.ejs') %>
+        <h1>Create a new account</h1>
+        <div class="auth-form">
 
-        <div class="signup-container">
-            <h1>Create a new account</h1>
             <form action="/auth/sign-up" method="POST">
+                <div class="auth-labels">
+                    <label for="name" class="details">Name:</label>
+                    <input type="text" name="name" id="name" />
+                </div>
 
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username" />
+                <div class="auth-labels">
+                    <label for="username" class="details">Username:</label>
+                    <input type="text" name="username" id="username" />
+                </div>
 
-                <label for="password">Password:</label>
-                <input type="password" name="password" id="password" />
+                <div class="auth-labels">
+                    <label for="password" class="details">Password:</label>
+                    <input type="password" name="password" id="password" />
+                </div>
 
-                <label for="confirmPassword">Confirm Password:</label>
-                <input type="password" name="confirmPassword" id="confirmPassword" />
+                <div class="auth-labels">
+                    <label for="confirmPassword" class="details">Confirm Password:</label>
+                    <input type="password" name="confirmPassword" id="confirmPassword" />
+                </div>
 
-                <button type="submit">Sign up</button>
+                <button type="submit" class="submit">Sign up</button>
             </form>
         </div>
 </body>
