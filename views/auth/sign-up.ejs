@@ -13,9 +13,12 @@
 <body>
     <%- include('../partials/_navbar.ejs') %>
         <h1>Create a new account</h1>
-        <div class="auth-form">
+        <div class="auth-form-signup">
+            <img src="../images/woman-reading-book-home-surrounded-by-plants-radio.png"
+                alt="Woman reading a book at home" id="woman-reading-book" />
 
             <form action="/auth/sign-up" method="POST">
+
                 <div class="auth-labels">
                     <label for="name" class="details">Name:</label>
                     <input type="text" name="name" id="name" />

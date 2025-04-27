@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Community Library</title>
+</head>
+
+
+<div class="nav-bar">
+    <%- include('../partials/_navbar.ejs') %>
+</div>
+
+
+<body>
+    <h1>My Community Library</h1>
+    <h2>Enjoy the shelves of your fellow readers in your community!</h2>
+
+    <div class="library-bookshelf">
+
+        <% shelves.forEach(shelf=> { %>
+            <li>
+                <a class="library-shelf-title" href="/shelves/<%=shelf._id %>">
+                    <%=shelf.title%>
+                </a>
+                <%})%>
+            </li>
+
+    </div>
+
+
+
+
+
+
+</body>
+
+</html>

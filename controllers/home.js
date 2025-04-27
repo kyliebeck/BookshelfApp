@@ -6,3 +6,6 @@ const User = require('../models/user.js');
 router.get('/home', (req, res) => {
     res.render('home.ejs');
 });
+
+
+module.exports = router;

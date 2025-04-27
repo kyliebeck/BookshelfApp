@@ -16,31 +16,37 @@
 </div>
 
 <body>
-    <h1>
+    <h1 class="title-of-book-show-page">
         <%=book.title%> by <%=book.author%>
     </h1>
 
     <div class="book-details">
 
-        <h3>
+        <h3 class="book-id-labels">
             Genre: <%=book.genre%>
         </h3>
-        <h3>
+        <h3 class="book-id-labels">
             <%=book.pageNumber%> pages
         </h3>
-        <h3>
+        <h3 class="book-id-labels">
             Status: <%=book.status%>
         </h3>
 
-        <div class="action-container">
-            <form class="edit-form" action="/books/<%=book._id%>/edit">
-                <button class="book-action">Edit </button>
-            </form>
+        <h3 class="book-id-labels">
+            Notes: <%=book.notes%>
+        </h3>
 
-            <form class="delete-form" action="/books/<%=book._id%>?_method=DELETE" method="POST">
-                <button class="book-action" type="submit">Delete </button>
-            </form>
-        </div>
+
+    </div>
+
+    <div class="action-container">
+        <form class="edit-form" action="/books/<%=book._id%>/edit">
+            <button class="book-action">Edit </button>
+        </form>
+
+        <form class="delete-form" action="/books/<%=book._id%>?_method=DELETE" method="POST">
+            <button class="book-action" type="submit">Delete </button>
+        </form>
     </div>
     <a class="index-nav" href="/books/">Back to my Bookshelf</a>
 </body>

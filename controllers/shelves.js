@@ -11,7 +11,9 @@ router.get('/', async (req, res) => {
         user: req.session.user._id
     });
 
-    const allBooks = await Book.find();
+    const allBooks = await Book.find({
+        user: req.session.user._id
+    });
 
     res.render('shelves/index.ejs', {
         shelves: allShelves,
@@ -34,10 +36,10 @@ router.get('/new', async (req, res) => {
 
 router.get('/:shelfId', async (req, res) => {
     const foundShelf = await Shelf.findById(req.params.shelfId).populate("books");
-    const foundBook = await Book.findById(req.params.bookId)
+    console.log("found shelf", foundShelf)
     res.render('shelves/show.ejs', {
-        shelf: foundShelf,
-        book: foundBook
+        shelf: foundShelf
+
 
     })
 });

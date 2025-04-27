@@ -13,18 +13,23 @@
 
 <body>
 
-    <div class="container">
-        <% if (user) { %>
-            <h1>Welcome to Bookshelf, <%= user.name %>!</h1>
-            <div class="home-links">
-                <a class="home-navigate" href="/books/">View My Books</a>
-                <a class="home-navigate" href="/shelves/">View My Bookshelves</a>
-            </div>
-            <% } else { %>
-                <h1>Welcome to Bookshelf</h1>
 
-                <% } %>
-    </div>
+    <% if (user) { %>
+        <h1>Welcome to Bookshelf, <%= user.name %>!</h1>
+        <div class="container-home">
+            <img src="images/stack-of-books.png" alt="Stack of Books" id="stack-of-books-pic" />
+
+            <div class="home-links">
+                <a class="home-navigate" href="/books/">My Books</a>
+                <a class="home-navigate" href="/shelves/">My Shelves</a>
+                <a class="home-navigate" href="/community/">My Community</a>
+            </div>
+        </div>
+        <% } else { %>
+            <h1>Welcome to Bookshelf</h1>
+
+            <% } %>
+
 </body>
 
 </html>

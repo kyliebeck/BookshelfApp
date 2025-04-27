@@ -1,15 +1,17 @@
 /* public/stylesheets/partials.css */
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Playpen+Sans:wght@100..800&display=swap");
 
 .navbar {
     display: flex;
     flex-direction: row;
-    padding: 5px 20px 5px;
+    padding: 2px 15px 2px;
     align-items: center;
     justify-content: space-between;
 }
 
 #nav-header {
-    font-size: 20px;
+    font-family: "Playpen Sans", sans-serif;
+    font-size: 3vw;
     margin: 0;
     text-decoration: none;
     color: black;
@@ -26,9 +28,10 @@
 #authlink1 {
     text-decoration: none;
     align-self: flex-end;
-
     color: #F2CDA0;
     font-weight: bold;
+    font-size: 3vw;
+    margin: .5vw;
 }
 
 .authlink1:hover {
