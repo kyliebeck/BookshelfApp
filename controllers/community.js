@@ -8,8 +8,10 @@ const Shelf = require('../models/shelf.js')
 
 router.get('/', async (req, res) => {
 
-    const allShelves = await Shelf.find()
-    const allBooks = await Book.find()
+    const allShelves = await Shelf.find({
+        user: { $not: { $eq: req.session.user._id } }
+    })
+
 
     res.render('community/index.ejs', {
         shelves: allShelves,
