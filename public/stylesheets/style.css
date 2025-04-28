@@ -641,6 +641,12 @@ input[type="checkbox"]:checked::before {
 
 }
 
+.library-header {
+    width: 90%;
+    background-image: url("/images/book-background-pic.png");
+
+}
+
 .library-bookshelf {
     margin-top: 4vw;
     list-style: none;

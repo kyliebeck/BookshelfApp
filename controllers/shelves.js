@@ -46,6 +46,7 @@ router.get('/:shelfId', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
+    console.log("kajfebkjaeubge")
     const shelfData = {
         title: req.body.title,
         user: req.session.user._id,
@@ -85,18 +86,17 @@ router.get('/:shelfId/edit', async (req, res) => {
 })
 // AAU, I want my shelf details to be prefilled when I open the edit page
 router.put('/:shelfId', async (req, res) => {
+    console.log("Hello")
 
     const updatedShelf = await Shelf.findByIdAndUpdate(req.params.shelfId, {
         title: req.body.title,
         books: req.body.books,
-        user: req.session.user._id,
     }, { new: true });
 
 
     await updatedShelf.save();
 
     res.redirect(`/shelves/${req.params.shelfId}`)
-    console.log("req.body.books", req.body.books)
 });
 
 router.delete('/:shelfId', async (req, res) => {

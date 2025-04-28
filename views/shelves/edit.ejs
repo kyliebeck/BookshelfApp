@@ -19,7 +19,7 @@
     </div>
 
     <div class="shelf-form">
-        <form action="/shelves/" method="POST">
+        <form action="/shelves/<%=shelf._id%>?_method=PUT" method="POST">
 
             <div class="view-shelf-title">
                 <label for="title" class="details">Shelf Title:</label>
