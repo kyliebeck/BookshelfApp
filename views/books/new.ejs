@@ -21,31 +21,32 @@
     </div>
 
     <div class="book-form">
+        <img src="/images/child-reading-book.png" alt="Child reading a yellow book" id="child-reading-book">
         <form action="/books/" method="POST">
-            <div class="title">
+            <div class="auth-labels">
                 <label for="title" class="details">Title:</label>
                 <input type="text" name="title" id="title" class="text-box" />
             </div>
 
-            <div class="author">
+            <div class="auth-labels">
                 <label for="author" class="details">Author:</label>
                 <input type="text" name="author" id="author" class="text-box" />
             </div>
 
-            <div class="genre">
+            <div class="auth-labels">
                 <label for="genre" class="details">Genre:</label>
                 <input type="text" name="genre" id="genre" class="text-box" />
             </div>
 
-            <div class="pageNumber">
+            <div class="auth-labels">
                 <label for="pageNumber" class="details">Pages:</label>
                 <input type="text" name="pageNumber" id="pageNumber" class="text-box" />
             </div>
 
 
-            <div class="note-box">
+            <div class="auth-labels">
                 <label for="notes" class="details">Notes:</label>
-                <textarea type="text" id="notes" name="notes"></textarea>
+                <textarea type="text" id="notes" class="text-box" name="notes"></textarea>
             </div>
 
             <div class="status">
@@ -59,7 +60,7 @@
 
             <div class="favorite">
                 <label for="favorite" class="details">Favorite:</label>
-                <input type="checkbox" id="favorite" name="favorite">
+                <input type="checkbox" id="favorite" name="favorite" />
             </div>
 
             <button class="submit" button type="submit">Submit</button>

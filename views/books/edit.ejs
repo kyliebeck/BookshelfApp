@@ -29,44 +29,54 @@
         </h1>
     </div>
 
-    <div class="book-form">
+    <div class="edit-book-form">
         <form action="/books/<%=book._id%>?_method=PUT" method="POST">
 
-            <div class="title">
+            <div class="auth-labels">
                 <label for="title" class="details">Title:</label>
                 <input type="text" name="title" id="title" class="text-box" value="<%=book.title%>" />
             </div>
 
-            <div class="author">
+            <div class="auth-labels">
                 <label for="author" class="details">Author:</label>
                 <input type="text" name="author" id="author" class="text-box" value="<%=book.author%>" />
             </div>
 
-            <div class="genre">
+            <div class="auth-labels">
                 <label for=" genre" class="details">Genre:</label>
                 <input type="text" name="genre" id="genre" class="text-box" value="<%=book.genre%>" />
             </div>
 
-            <div class="pageNumber">
+            <div class="auth-labels">
                 <label for=" pageNumber" class="details">Pages:</label>
                 <input type="text" name="pageNumber" id="pageNumber" class="text-box" value="<%=book.pageNumber%>" />
             </div>
 
-            <div class="note-box">
+            <div class="auth-labels">
                 <label for="notes" class="details">Notes:</label>
-                <textarea type="text" id="notes" name="notes"> <%=book.notes%></textarea>
+                <textarea type="text" id="notes" name="notes" class="text-box"> <%=book.notes%></textarea>
             </div>
 
             <div class="status">
                 <label for=" status" class="details">Status:</label>
-                <select id="status" name="status">
-                    <option value="Unread">Unread</option>
-                    <option value="Finished">Finished</option>
-                    <option value="Currently Reading">Currently Reading</option>
+                <select id="status-dropbox" name="status">
+                    <option value="Unread">
+                        <%=book.status==="Unread" ? "selected" : "" %>
+                            Unread
+                    </option>
+                    <option value="Finished">
+                        <%=book.status==="Finished" ? "selected" : "" %>
+                            Finished
+                    </option>
+                    <option value="Currently Reading">
+                        <%=book.status==="Currently Reading" ? "selected" : "" %>
+                            Currently Reading
+                    </option>
                 </select>
             </div>
+
             <div class="favorite">
-                <label for="favorite">Favorite:</label>
+                <label for="favorite" class="details">Favorite:</label>
                 <input type="checkbox" id="favorite" name="favorite" <% if (book.favorite) {%> checked <%} %> />
             </div>
 

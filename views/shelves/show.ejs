@@ -16,49 +16,48 @@
         <%- include('../partials/_navbar.ejs') %>
 
     </div>
-    <div class="shelf-form">
 
-        <h1>
-            <%=shelf.title%>
-        </h1>
+    <h1>
+        <%=shelf.title%>
+    </h1>
 
-        <div class="shelf-content">
+    <div class="shelf-content">
 
-            <div class="shelf-book-container">
+        <div class="shelf-book-container">
 
-                <% shelf.books.forEach(book=> { %>
-                    <li>
-                        <a class="shelf-book-title" href="/books/<%=book._id %>">
-                            <%=book.title%>
-                        </a>
-                        <%})%>
-                    </li>
-
+            <% shelf.books.forEach(book=> { %>
+                <li>
+                    <a class="shelf-book-title" href="/books/<%=book._id %>">
+                        <%=book.title%>
+                    </a>
+                    <%})%>
+                </li>
 
 
-            </div>
-
-
-            <div class="shelf-action-container">
-
-                <form class="edit-form" action="/shelves/<%=shelf._id%>/edit">
-                    <button class="shelf-action">Edit </button>
-                </form>
-
-                <form class="delete-form" action="/shelves/<%=shelf._id%>?_method=DELETE" method="POST">
-                    <button class="shelf-action" type="submit">Delete </button>
-                </form>
-
-            </div>
 
         </div>
 
-        <div class="shelf-navs">
-            <a class="nav-link" href="/">Back Home
-            </a>
-            <a class="nav-link" href="/shelves">View Shelves</a>
+
+        <div class="shelf-action-container">
+
+            <form class="edit-form" action="/shelves/<%=shelf._id%>/edit">
+                <button class="shelf-action">Edit </button>
+            </form>
+
+            <form class="delete-form" action="/shelves/<%=shelf._id%>?_method=DELETE" method="POST">
+                <button class="shelf-action" type="submit">Delete </button>
+            </form>
+
         </div>
+
     </div>
+
+    <div class="shelf-navs">
+        <a class="nav-link" href="/">Back Home
+        </a>
+        <a class="nav-link" href="/shelves">View Shelves</a>
+    </div>
+
 
 
 

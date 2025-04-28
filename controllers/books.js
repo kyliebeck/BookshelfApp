@@ -45,6 +45,12 @@ router.get('/:bookId', async (req, res) => {
 // AAU I want to be able to POST my new book into my current collection and view it on my index page
 router.post('/', async (req, res) => {
 
+    if (req.body.favorite === "on") {
+        req.body.favorite = true;
+    } else {
+        req.body.favorite = false;
+    }
+
     const bookData = {
         title: req.body.title,
         author: req.body.author,
@@ -52,6 +58,7 @@ router.post('/', async (req, res) => {
         pageNumber: req.body.pageNumber,
         status: req.body.status,
         notes: req.body.notes,
+        favorite: req.body.favorite,
         user: req.session.user._id,
     }
     const newBook = new Book(bookData);
@@ -71,11 +78,20 @@ router.get('/:bookId/edit', async (req, res) => {
 // AAU, I want my book details to be prefilled when I open the edit page
 router.put('/:bookId', async (req, res) => {
 
+    if (req.body.favorite === "on") {
+        req.body.favorite = true;
+    } else {
+        req.body.favorite = false;
+    }
+
+
     const updatedBook = await Book.findByIdAndUpdate(req.params.bookId, {
         title: req.body.title,
         author: req.body.author,
         genre: req.body.genre,
         pageNumber: req.body.pageNumber,
+        status: req.body.status,
+        favorite: req.body.favorite,
         notes: req.body.notes,
     }, { new: true });
 

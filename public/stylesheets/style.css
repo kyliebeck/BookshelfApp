@@ -134,6 +134,8 @@ h1 {
     height: 3vw;
     width: 20vw;
     border: 2px solid black;
+    font-family: "Patrick Hand", sans-serif;
+    font-size: 2vw;
 }
 
 #confirmPassword {
@@ -142,40 +144,50 @@ h1 {
     border: 2px solid black;
 }
 
+#book-heart-pic {
+    width: 5vw;
+    height: 5vw;
+}
+
 
 
 .book-index {
     list-style: none;
     background-color: #F2CDA0;
-    border: 3px solid black;
-    border-radius: 25px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     align-self: center;
+    justify-items: center;
     align-items: flex-start;
     padding: 30px;
-    gap: 3vw;
+    gap: 1.5vw;
     width: 80%;
     height: 75vw;
-
+    border: 3px solid black;
+    border-radius: 25px;
 
 }
 
+.book-div {
+    display: flex;
+    border: 3px solid black;
+    border-radius: 25px;
+    flex-direction: row;
+    align-items: center;
+
+}
 
 .book-title {
     text-decoration: none;
     color: black;
-    border-radius: 10px;
-    border: 1px solid black;
     padding: 8px 10px;
     font-size: 2vw;
-
+    font-family: "Playpen Sans", sans-serif;
 
 }
 
-.book-title:hover {
-    font-weight: bold;
+.book-div:hover {
     background-color: #84A4BF;
 }
 
@@ -281,14 +293,33 @@ h1 {
 
 .book-form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-self: center;
-    align-content: center;
-    width: 300px;
+    align-items: center;
+    width: 80vw;
     background-color: #F2CDA0;
     border-radius: 25px;
-    padding: 30px;
-    line-height: 40px;
+    padding: 10px;
+    line-height: 1vw;
+}
+
+.edit-book-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    align-self: center;
+    width: 50vw;
+    background-color: #F2CDA0;
+    border-radius: 25px;
+    padding: 10px;
+    line-height: 3vw;
+}
+
+#child-reading-book {
+    height: 35vw;
+    width: 35vw;
+
 }
 
 .new-book-nav-links {
@@ -296,28 +327,47 @@ h1 {
 }
 
 .details {
-    font-size: 18px;
+    font-size: 3vw;
     margin-right: 10px;
+    font-family: "Playpen Sans", sans-serif;
 }
 
 .text-box {
-    height: 30px;
-    border: 1px solid black;
-    font-size: 18px;
+    height: 5vw;
+    border: 2px solid black;
+    font-size: 2vw;
 }
 
 .submit {
     font-family: "Patrick Hand", sans-serif;
-    font-size: 20px;
+    font-size: 2vw;
     text-align: center;
     border-radius: 20px;
-    padding: 5px;
+    padding: 1vw;
     margin: 10px;
-    height: 40px;
-    width: 80px;
+    height: 5vw;
+    width: 8vw;
 
+}
 
+#status-dropbox {
+    border: 2px solid black;
+    font-family: "Patrick Hand", sans-serif;
+    height: 4vw;
+    font-size: 2vw;
+    padding: .5vw;
+}
 
+.status {
+    font-family: "Playpen Sans", sans-serif;
+    font-size: 2vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5vw;
+    justify-content: flex-end;
+    gap: 10px;
+    justify-self: flex-start;
 }
 
 .submit:hover {
@@ -325,19 +375,66 @@ h1 {
     background-color: #BF6A4B;
 }
 
+.favorite {
+    font-family: "Playpen Sans", sans-serif;
+    font-size: 2.5vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 5vw;
+    justify-content: flex-end;
+    gap: 10px;
+    justify-self: flex-start;
+}
 
+input[type="checkbox"] {
+    appearance: none;
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: black;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.1em solid black;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em var(--form-control-color);
+    background-color: #BF6A4B;
+    transform-origin: bottom left;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+.title-of-book-show-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .book-details {
     display: flex;
     flex-direction: column;
     align-self: center;
-    align-content: center;
+    align-items: flex-start;
     width: 50%;
     background-color: #F2CDA0;
     border-radius: 25px;
     padding: 30px;
     line-height: 20px;
-    margin-top: 4vw;
+    margin-top: 2vw;
 }
 
 .book-action {
@@ -393,24 +490,65 @@ h1 {
 .shelf-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-self: center;
+    border: 2px solid black;
+    margin-top: 3vw;
+    background-color: #F2CDA0;
+    border-radius: 25px;
+    padding: 5vw;
+    width: 80%;
 
 }
 
-
-
-.add-books {
-    width: 700px;
-    height: 60px;
+.list-of-books-in-shelf {
+    display: flex;
+    text-decoration: none;
+    color: black;
     border: 1px solid black;
+    border-radius: 10px;
+    padding: 1vw 2vw;
+    font-size: 1.5vw;
+    margin: 1vw;
+    flex-wrap: wrap;
+    max-width: 130px;
+}
+
+.list-of-books-in-shelf:hover {
+    font-weight: bold;
+    background-color: #84A4BF;
+}
+
+.shelf-book-list {
+    list-style: none;
+    margin: 1vw;
     display: flex;
     flex-direction: row;
+    justify-self: center;
+
+}
+
+.shelf-contents-title {
+    font-size: 2vw;
+    font-family: "Playpen Sans", sans-serif;
+    margin-top: 5vw;
+}
+
+.add-books {
+    width: 40vw;
+    height: 5vw;
+    padding: 1vw;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    margin: 5vw;
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
     scroll-snap-type: x mandatory;
     align-items: center;
-    gap: 20px;
+    gap: 2vw;
+    justify-self: center;
+    font-size: 1.5vw;
 
 
 }

@@ -18,6 +18,10 @@
 <body>
     <h1 class="title-of-book-show-page">
         <%=book.title%> by <%=book.author%>
+
+                <%if (book.favorite===true){ %>
+                    <img src="/images/book-heart.png" alt="book with a heart" id="book-heart-pic">
+                    <% }%>
     </h1>
 
     <div class="book-details">
@@ -35,6 +39,7 @@
         <h3 class="book-id-labels">
             Notes: <%=book.notes%>
         </h3>
+
 
 
     </div>

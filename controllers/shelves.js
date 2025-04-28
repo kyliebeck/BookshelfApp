@@ -36,7 +36,8 @@ router.get('/new', async (req, res) => {
 
 router.get('/:shelfId', async (req, res) => {
     const foundShelf = await Shelf.findById(req.params.shelfId).populate("books");
-    console.log("found shelf", foundShelf)
+
+
     res.render('shelves/show.ejs', {
         shelf: foundShelf
 
@@ -73,7 +74,7 @@ router.post('/', async (req, res) => {
 
 // AAU, I want to be able to edit any shelf that I post to my collection. 
 router.get('/:shelfId/edit', async (req, res) => {
-    const foundShelf = await Shelf.findById(req.params.shelfId);
+    const foundShelf = await Shelf.findById(req.params.shelfId).populate("books");
     const allBooks = await Book.find();
     const foundBook = await Book.findById(req.params.bookId)
     res.render('shelves/edit.ejs', {
@@ -83,14 +84,19 @@ router.get('/:shelfId/edit', async (req, res) => {
     })
 })
 // AAU, I want my shelf details to be prefilled when I open the edit page
-router.put('/shelfId', async (req, res) => {
+router.put('/:shelfId', async (req, res) => {
+
     const updatedShelf = await Shelf.findByIdAndUpdate(req.params.shelfId, {
         title: req.body.title,
+        books: req.body.books,
+        user: req.session.user._id,
     }, { new: true });
+
 
     await updatedShelf.save();
 
     res.redirect(`/shelves/${req.params.shelfId}`)
+    console.log("req.body.books", req.body.books)
 });
 
 router.delete('/:shelfId', async (req, res) => {

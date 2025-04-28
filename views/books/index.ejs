@@ -27,9 +27,15 @@
 
                     <% books.forEach(book=> { %>
                         <li>
-                            <a class="book-title" href="/books/<%=book._id %>">
-                                <%=book.title%>
-                            </a>
+                            <div class="book-div">
+                                <a class="book-title" href="/books/<%=book._id %>">
+                                    <%=book.title%>
+                                        <%if (book.favorite===true){ %>
+                                            <img src="/images/book-heart.png" alt="book with a heart"
+                                                id="book-heart-pic">
+                                            <% }%>
+                                </a>
+                            </div>
                             <%})%>
                         </li>
                         <%}%>

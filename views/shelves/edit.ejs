@@ -21,22 +21,35 @@
     <div class="shelf-form">
         <form action="/shelves/" method="POST">
 
-            <div class="shelf-title">
+            <div class="view-shelf-title">
                 <label for="title" class="details">Shelf Title:</label>
                 <input type="text" name="title" id="title" value="<%=shelf.title%>" class="text-box" />
             </div>
             <div class="add-books-container">
-                <div class="add-books">
 
-                    <% books.forEach((book)=> { %>
+                <p class="shelf-contents-title">Shelf Contents:</p>
+                <% shelf.books.forEach(book=> { %>
 
-                        <input type="checkbox" id="shelf-books" name="book-<%=book._id%>">
-                        <label for="book-<%=book._id%>">
-                            <%=book.title%>
-                        </label>
+                    <div class="shelf-book-list">
 
-                        <%})%>
-                </div>
+                        <li>
+                            <a class="list-of-books-in-shelf" href="/books/<%=book._id %>">
+                                <%=book.title%>
+                            </a>
+                            <%})%>
+                        </li>
+                    </div>
+                    <div class="add-books">
+
+                        <% books.forEach((book)=> { %>
+
+                            <input type="checkbox" id="shelf-books" name="book-<%=book._id%>">
+                            <label for="book-<%=book._id%>">
+                                <%=book.title%>
+                            </label>
+
+                            <%})%>
+                    </div>
             </div>
             <button class="submit" button type="submit">Update</button>
         </form>

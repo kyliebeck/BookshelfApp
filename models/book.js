@@ -24,7 +24,7 @@ const bookSchema = new mongoose.Schema({
         type: String,
     },
     favorite: {
-        type: Boolean
+        type: Boolean,
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
