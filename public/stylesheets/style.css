@@ -434,9 +434,9 @@ input[type="checkbox"] {
     margin: 0;
     font: inherit;
     color: black;
-    width: 1.15em;
-    height: 1.15em;
-    border: 0.1em solid black;
+    width: 1.5em;
+    height: 1.5em;
+    border: 0.15em solid black;
     border-radius: 0.15em;
     transform: translateY(-0.075em);
     display: grid;
@@ -539,23 +539,26 @@ input[type="checkbox"]:checked::before {
     padding: 5vw;
     width: 80%;
 
+
 }
 
 .list-of-books-in-shelf {
     display: flex;
     text-decoration: none;
     color: black;
-    border: 1px solid black;
+    border: 3px solid black;
     border-radius: 10px;
     padding: 1vw 2vw;
     font-size: 1.5vw;
     margin: 1vw;
     flex-wrap: wrap;
-    max-width: 130px;
+    max-width: 170x;
+    font-family: "Playpen Sans", sans-serif;
+    background-color: #F2CDA0
 }
 
 .list-of-books-in-shelf:hover {
-    font-weight: bold;
+
     background-color: #84A4BF;
 }
 
@@ -575,10 +578,10 @@ input[type="checkbox"]:checked::before {
 }
 
 .add-books {
-    width: 40vw;
+    width: 60vw;
     height: 5vw;
     padding: 1vw;
-    border: 2px solid black;
+    border: 3px solid black;
     display: flex;
     flex-direction: row;
     margin: 5vw;
@@ -587,14 +590,20 @@ input[type="checkbox"]:checked::before {
     white-space: nowrap;
     scroll-snap-type: x mandatory;
     align-items: center;
-    gap: 2vw;
+    gap: 1vw;
     justify-self: center;
     font-size: 1.5vw;
+    background-color: #F2CDA0;
 
 
 }
 
-
+#shelf-books {
+    font-family: "Playpen Sans", sans-serif;
+    margin-right: 2vw;
+    margin-left: 0;
+    font-size: 2vw;
+}
 
 
 
@@ -622,12 +631,13 @@ input[type="checkbox"]:checked::before {
     flex-direction: column;
     margin-top: 4vw;
     align-self: flex-start;
-    align-items: flex-start
+    align-items: flex-start;
+    gap: 1vw;
 }
 
 .shelf-action {
     text-decoration: none;
-    font-size: 1vw;
+    font-size: 1.5vw;
     color: black;
     padding: 5px 15px;
     border-radius: 25px;
@@ -674,7 +684,7 @@ input[type="checkbox"]:checked::before {
 
 .shelf-book-title:hover {
     background-color: #84A4BF;
-    border: 3px solid black;
+
 
 }
 
@@ -708,8 +718,7 @@ input[type="checkbox"]:checked::before {
     flex-direction: column;
     border: 4px solid black;
     width: 60%;
-    max-height: 500px;
-
+    height: 400px;
     align-self: center;
     overflow-y: scroll;
     overflow-x: hidden;

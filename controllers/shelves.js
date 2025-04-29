@@ -46,7 +46,7 @@ router.get('/:shelfId', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    console.log("kajfebkjaeubge")
+
     const shelfData = {
         title: req.body.title,
         user: req.session.user._id,
@@ -76,7 +76,9 @@ router.post('/', async (req, res) => {
 // AAU, I want to be able to edit any shelf that I post to my collection. 
 router.get('/:shelfId/edit', async (req, res) => {
     const foundShelf = await Shelf.findById(req.params.shelfId).populate("books");
-    const allBooks = await Book.find();
+    const allBooks = await Book.find({
+        user: req.session.user._id
+    });
     const foundBook = await Book.findById(req.params.bookId)
     res.render('shelves/edit.ejs', {
         shelf: foundShelf,
@@ -87,10 +89,24 @@ router.get('/:shelfId/edit', async (req, res) => {
 // AAU, I want my shelf details to be prefilled when I open the edit page
 router.put('/:shelfId', async (req, res) => {
 
+    const keysInReqBody = Object.keys(req.body)
+    // filter through keysInReqBody to find all keys that include book-
+    const shelfBooks = keysInReqBody.filter((key) => key.includes
+        ('book-'))
+    // split keys (books) at the hyphen to isolate the book id
+    const bookIds = shelfBooks.map((book) => {
+        // split the book string to remove first part
+        const bookId = book.split('-')[1];
+        return bookId;
+    })
 
+
+
+
+    console.log("req.body", req.body)
     const updatedShelf = await Shelf.findByIdAndUpdate(req.params.shelfId, {
         title: req.body.title,
-        books: req.body.books,
+        $push: { books: { $each: bookIds } },
     }, { new: true });
 
 

@@ -3,8 +3,16 @@ const router = express.Router();
 
 const User = require('../models/user.js');
 
-router.get('/home', (req, res) => {
-    res.render('home.ejs');
+router.get('/home', async (req, res) => {
+
+    const allBooks = await Book.find({
+        user: req.session.user._id
+    });
+
+
+    res.render('home.ejs', {
+        books: allBooks
+    });
 });
 
 

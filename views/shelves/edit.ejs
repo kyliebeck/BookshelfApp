@@ -43,8 +43,8 @@
 
                         <% books.forEach((book)=> { %>
 
-                            <input type="checkbox" id="shelf-books" name="book-<%=book._id%>">
-                            <label for="book-<%=book._id%>">
+                            <input type="checkbox" name="book-<%=book._id%>">
+                            <label for="book-<%=book._id%>" id="shelf-books">
                                 <%=book.title%>
                             </label>
 
