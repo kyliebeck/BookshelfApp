@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Book = require('../models/book.js')
-const User = require('../models/user.js');
+
 const Shelf = require('../models/shelf.js')
 
 // AAU, I want to be able to view all of my shelves on one page
@@ -101,9 +101,6 @@ router.put('/:shelfId', async (req, res) => {
     })
 
 
-
-
-    console.log("req.body", req.body)
     const updatedShelf = await Shelf.findByIdAndUpdate(req.params.shelfId, {
         title: req.body.title,
         $push: { books: { $each: bookIds } },

@@ -42,25 +42,18 @@ const authController = require('./controllers/auth.js');
 const booksController = require('./controllers/books.js');
 const shelvesController = require('./controllers/shelves.js');
 const communityController = require('./controllers/community.js')
+const homeController = require('./controllers/home')
 
 app.use(passUserToView); // use new passUserToView middleware here
 app.use('/auth', authController);
 app.use(isSignedIn); // use new isSignedIn middleware here
 app.use('/books', booksController);
 app.use('/shelves', shelvesController);
-app.use('/community', communityController)
+app.use('/community', communityController);
+app.use('/', homeController);
 
 
-app.get('/', (req, res) => {
-    // Check if the user is signed in
-    if (req.session.user) {
-        // Redirect signed-in users to their homepage
-        res.render('home.ejs');
-    } else {
-        // Show the homepage for users who are not signed in
-        res.render('index.ejs');
-    }
-});
+
 
 app.listen(port, () => {
     console.log(`The express app is ready on port ${port}!`);

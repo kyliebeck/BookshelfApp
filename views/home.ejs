@@ -14,8 +14,12 @@
 <body>
 
 
+
+
     <% if (user) { %>
         <h1>Welcome to Bookshelf, <%= user.name %>!</h1>
+
+
         <div class="container-home">
             <img src="images/stack-of-books.png" alt="Stack of Books" id="stack-of-books-pic" />
 
@@ -29,7 +33,9 @@
             <h1>Welcome to Bookshelf</h1>
 
             <% } %>
-
+                <div class="user-statistics">
+                    <div class="user-stats-books"> You finished <%=count%> books!</div>
+                </div>
 </body>
 
 </html>

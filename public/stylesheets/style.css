@@ -750,3 +750,18 @@ input[type="checkbox"]:checked::before {
     background-image: url("/images/book-background-pic.png");
     background-size: contain;
 }
+
+.user-statistics {
+    border: 5px solid #BF6A4B;
+    background-color: #F2CDA0;
+    display: flex;
+    width: 20%;
+    padding: 3vw;
+    border-radius: 45px;
+    margin: 5.5vw;
+}
+
+.user-stats-books {
+    font-size: 2.5vw;
+    font-family: "Patrick Hand", sans-serif;
+}

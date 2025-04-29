@@ -1,7 +1,7 @@
 ## Bookshelf App
 
 #### App Description:
-
+Bookshelf allows you to collect and store all the books you have read or have yet to read. Organize your books in unique bookshelves and share them with the rest of your community on the "library" page. 
 
 #### Technology Used:
 * Javascript
