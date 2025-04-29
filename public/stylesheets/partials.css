@@ -11,7 +11,7 @@
 
 #nav-header {
     font-family: "Playpen Sans", sans-serif;
-    font-size: 3vw;
+    font-size: 2vw;
     margin: 0;
     text-decoration: none;
     color: #F2CDA0;
@@ -30,7 +30,7 @@
     align-self: flex-end;
     color: #F2CDA0;
     font-weight: bold;
-    font-size: 3vw;
+    font-size: 2vw;
     margin: .5vw;
 
 }
